@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conta Fenix</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f3f6fb;color:#243047;line-height:1.5}
+header{background:linear-gradient(135deg,#102a43,#176b87);color:white;text-align:center;padding:30px 16px}
+header h1{margin:0;font-size:2.2rem}
+nav{background:#0b2538;padding:12px;text-align:center;position:sticky;top:0;z-index:5}
+nav a{color:white;text-decoration:none;margin:7px 10px;display:inline-block;font-weight:bold}
+main{max-width:1000px;margin:22px auto;padding:0 15px}
+section{background:white;margin:18px 0;padding:22px;border-radius:14px;box-shadow:0 3px 14px #102a4312}
+h2{color:#176b87;margin-top:0}
+h3{color:#243047}
+input,button{font:inherit;padding:10px;border-radius:8px;border:1px solid #b8c6d1}
+input{max-width:260px;width:100%}
+button{background:#176b87;color:white;border:0;cursor:pointer;font-weight:bold}
+button:hover{background:#104d65}
+.resultado{font-weight:bold;margin-top:12px;color:#12613b}
+.ejercicio{border:1px solid #d8e2ea;border-radius:12px;padding:16px;margin:15px 0}
+.opcion{display:block;background:#f3f7fa;padding:10px;margin:8px 0;border-radius:8px;cursor:pointer}
+.opcion:hover{background:#e3f1f6}
+.opcion input{width:auto;margin-right:8px}
+.feedback{margin-top:10px;font-weight:bold}
+.correcto{color:#147a42}.incorrecto{color:#b42318}
+footer{text-align:center;background:#0b2538;color:white;padding:18px;margin-top:30px}
+.small{color:#5b6875}
+</style>
+</head>
+<body>
+<header>
+  <h1>🔥 CONTA FENIX</h1>
+  <p>Aprende contabilidad de manera fácil y práctica</p>
+</header>
+<nav>
+  <a href="#igv">IGV</a><a href="#comprobantes">Comprobantes</a>
+  <a href="#excel">Excel</a><a href="#powerpoint">PowerPoint</a>
+  <a href="#ejercicios">Ejercicios</a><a href="#negocio">Mi negocio</a>
+</nav>
+<main>
+<section id="igv">
+<h2>Calculadora de IGV (18%)</h2>
+<h3>Agregar IGV</h3>
+<label>Precio sin IGV: <input type="number" id="base" placeholder="Ej. 100" min="0"></label>
+<button onclick="agregarIGV()">Calcular</button>
+<p id="resAgregar" class="resultado"></p>
+<hr>
+<h3>Quitar IGV</h3>
+<label>Precio con IGV: <input type="number" id="total" placeholder="Ej. 118" min="0"></label>
+<button onclick="quitarIGV()">Calcular</button>
+<p id="resQuitar" class="resultado"></p>
+</section>
+
+<section id="comprobantes">
+<h2>Comprobantes de pago</h2>
+<ul>
+<li><b>Factura:</b> comprobante que se emite generalmente a empresas o personas con RUC y permite sustentar costo, gasto o crédito fiscal cuando corresponde.</li>
+<li><b>Boleta de venta:</b> comprobante que se entrega normalmente al consumidor final.</li>
+<li><b>Ticket:</b> comprobante emitido por máquinas registradoras autorizadas.</li>
+<li><b>Nota de crédito:</b> sirve para anular, descontar o corregir una operación ya realizada.</li>
+<li><b>Nota de débito:</b> sirve para aumentar el importe de una operación ya facturada.</li>
+</ul>
+</section>
+
+<section id="excel">
+<h2>Excel básico</h2>
+<p>Excel permite organizar datos, realizar cálculos y crear tablas.</p>
+<ul><li><b>=SUMA(A1:A5)</b>: suma los valores.</li><li><b>=PROMEDIO(A1:A5)</b>: calcula el promedio.</li><li><b>=MAX(A1:A5)</b>: muestra el valor mayor.</li><li><b>=MIN(A1:A5)</b>: muestra el valor menor.</li></ul>
+</section>
+
+<section id="powerpoint">
+<h2>PowerPoint</h2>
+<p>PowerPoint sirve para crear presentaciones con diapositivas, texto, imágenes, gráficos y videos.</p>
+<ol><li>Abre PowerPoint y elige una presentación.</li><li>Agrega un título y escribe tus ideas principales.</li><li>Inserta imágenes o gráficos relacionados con el tema.</li><li>Usa un diseño sencillo y revisa la ortografía.</li></ol>
+</section>
+
+<section id="ejercicios">
+<h2>📝 Ejercicios contables</h2>
+<p>Selecciona una alternativa (A, B, C o D) en cada pregunta. Al terminar, pulsa <b>Revisar mis respuestas</b> para ver tu resultado.</p>
+<form id="quiz">
+<div class="ejercicio">
+<p><b>1. ¿Qué porcentaje representa el IGV general en Perú?</b></p>
+<label class="opcion"><input type="radio" name="p1" value="a"> A) 10%</label>
+<label class="opcion"><input type="radio" name="p1" value="b"> B) 18%</label>
+<label class="opcion"><input type="radio" name="p1" value="c"> C) 5%</label>
+<label class="opcion"><input type="radio" name="p1" value="d"> D) 20%</label>
+<div id="f1" class="feedback"></div>
+</div>
+<div class="ejercicio">
+<p><b>2. ¿Qué comprobante se entrega normalmente al consumidor final?</b></p>
+<label class="opcion"><input type="radio" name="p2" value="a"> A) Factura</label>
+<label class="opcion"><input type="radio" name="p2" value="b"> B) Nota de débito</label>
+<label class="opcion"><input type="radio" name="p2" value="c"> C) Boleta de venta</label>
+<label class="opcion"><input type="radio" name="p2" value="d"> D) Orden de compra</label>
+<div id="f2" class="feedback"></div>
+</div>
+<div class="ejercicio">
+<p><b>3. ¿Qué fórmula se utiliza para sumar en Excel?</b></p>
+<label class="opcion"><input type="radio" name="p3" value="a"> A) =SUMA()</label>
+<label class="opcion"><input type="radio" name="p3" value="b"> B) =TEXTO()</label>
+<label class="opcion"><input type="radio" name="p3" value="c"> C) =IMAGEN()</label>
+<label class="opcion"><input type="radio" name="p3" value="d"> D) =COLOR()</label>
+<div id="f3" class="feedback"></div>
+</div>
+<div class="ejercicio">
+<p><b>4. ¿Para qué sirve una nota de crédito?</b></p>
+<label class="opcion"><input type="radio" name="p4" value="a"> A) Para contratar trabajadores</label>
+<label class="opcion"><input type="radio" name="p4" value="b"> B) Para aumentar el precio siempre</label>
+<label class="opcion"><input type="radio" name="p4" value="c"> C) Para registrar asistencia</label>
+<label class="opcion"><input type="radio" name="p4" value="d"> D) Para realizar descuentos, anulaciones o correcciones</label>
+<div id="f4" class="feedback"></div>
+</div>
+<div class="ejercicio">
+<p><b>5. ¿Qué herramienta permite crear presentaciones con diapositivas?</b></p>
+<label class="opcion"><input type="radio" name="p5" value="a"> A) Calculadora</label>
+<label class="opcion"><input type="radio" name="p5" value="b"> B) PowerPoint</label>
+<label class="opcion"><input type="radio" name="p5" value="c"> C) Bloc de notas</label>
+<label class="opcion"><input type="radio" name="p5" value="d"> D) Explorador de archivos</label>
+<div id="f5" class="feedback"></div>
+</div>
+<button type="button" onclick="revisarQuiz()">Revisar mis respuestas</button>
+<button type="reset" onclick="limpiarQuiz()" style="background:#64748b">Volver a intentar</button>
+<div id="resultadoQuiz" class="resultado" aria-live="polite"></div>
+</form>
+</section>
+
+<section id="negocio">
+<h2>🚀 Quiero iniciar mi negocio</h2>
+<ol><li>Elige un producto o servicio que quieras ofrecer.</li><li>Identifica a tus posibles clientes.</li><li>Calcula cuánto gastarás y cuánto cobrarás.</li><li>Registra tus ingresos y gastos.</li><li>Infórmate sobre tu RUC y los comprobantes que debes emitir.</li></ol>
+</section>
+</main>
+<footer>Conta Fenix · Aprende, practica y emprende</footer>
+<script>
+function dinero(n){return "S/ "+n.toFixed(2)}
+function agregarIGV(){
+ const b=parseFloat(document.getElementById('base').value);
+ const r=document.getElementById('resAgregar');
+ if(!Number.isFinite(b)||b<0){r.textContent="Ingresa un precio válido.";return}
+ const igv=b*0.18;r.textContent="IGV: "+dinero(igv)+" | Total: "+dinero(b+igv);
+}
+function quitarIGV(){
+ const t=parseFloat(document.getElementById('total').value);
+ const r=document.getElementById('resQuitar');
+ if(!Number.isFinite(t)||t<0){r.textContent="Ingresa un precio válido.";return}
+ const b=t/1.18;r.textContent="Base imponible: "+dinero(b)+" | IGV: "+dinero(t-b)+" | Total: "+dinero(t);
+}
+function revisarQuiz(){
+ const respuestas={p1:"b",p2:"c",p3:"a",p4:"d",p5:"b"};
+ let puntos=0,respondidas=0;
+ for(let i=1;i<=5;i++){
+  const elegido=document.querySelector('input[name="p'+i+'"]:checked');
+  const f=document.getElementById('f'+i);
+  if(!elegido){f.textContent="No seleccionaste una respuesta.";f.className="feedback incorrecto";continue}
+  respondidas++;
+  if(elegido.value===respuestas['p'+i]){puntos++;f.textContent="¡Correcto!";f.className="feedback correcto"}
+  else{f.textContent="Incorrecto. Inténtalo nuevamente.";f.className="feedback incorrecto"}
+ }
+ document.getElementById('resultadoQuiz').textContent="Resultado: "+puntos+" de 5 respuestas correctas. Respondidas: "+respondidas+"/5.";
+}
+function limpiarQuiz(){
+ setTimeout(()=>{
+  for(let i=1;i<=5;i++){const f=document.getElementById('f'+i);f.textContent="";f.className="feedback"}
+  document.getElementById('resultadoQuiz').textContent="";
+ },0);
+}
+</script>
+</body>
+</html>
